@@ -1,0 +1,24 @@
+<h2 style="color: green">GeeksforGeeks</h2>
+<h4>Angular PrimeNG TreeTable Lazy Loading</h4>
+
+<p-treeTable [columns]="cols" [value]="tableData" [lazy]="true"
+(onLazyLoad)="loadNodes($event)" [loading]="loading" (onNodeExpand)="onNodeExpand($event)">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Age</th>
+    </tr>
+  </ng-template>
+
+  <ng-template pTemplate="body" let-rowNode let-rowData="rowData">
+    <tr>
+      <td>
+        <p-treeTableToggler [rowNode]="rowNode"></p-treeTableToggler>
+        {{ rowData.firstname }}
+      </td>
+      <td>{{ rowData.lastname }}</td>
+      <td>{{ rowData.age }}</td>
+    </tr>
+  </ng-template>
+</p-treeTable>
